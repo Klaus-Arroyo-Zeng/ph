@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# 确保脚本在遇到错误时退出
-set -e
-
 # 定义变量
 NGINX_CONF="/root/3xui1.conf"
 CERT_PATH="/root/fullchain1.pem"
