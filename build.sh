@@ -3,7 +3,7 @@
 # 定义变量
 NGINX_CONF="/root/3xui1.conf"
 CERT_PATH="/root/fullchain1.pem"
-KEY_PATH="/root/privkey1.pem"
+KEY_PATH="/etc/nginx/conf.d/privkey1.pem"
 
 # 更新系统并安装所需软件（仅在必要时）
 echo "检查并安装必要的软件..."
@@ -29,6 +29,6 @@ ufw disable || echo "ufw 未启用，跳过..."
 
 # 重启 NGINX 服务
 echo "重启 NGINX 服务..."
-systemctl restart nginx
+systemctl restart nginx.service
 
 echo "脚本执行完毕！"
