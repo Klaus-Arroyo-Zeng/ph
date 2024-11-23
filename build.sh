@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # 定义变量
-NGINX_CONF="/root/privkey.pem"
+NGINX_CONF="/etc/nginx/conf.d/3xui.conf"
 CERT_PATH="/root/fullchain.pem"
-KEY_PATH="/etc/nginx/conf.d/3xui.conf"
+KEY_PATH="/root/privkey.pem"
 
 # 更新系统并安装所需软件（仅在必要时）
 echo "检查并安装必要的软件..."
