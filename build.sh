@@ -2,7 +2,7 @@
 
 # 定义变量
 NGINX_CONF="/root/privkey.pem"
-CERT_PATH="/root/fullchain1.pem"
+CERT_PATH="/root/fullchain.pem"
 KEY_PATH="/etc/nginx/conf.d/3xui.conf"
 
 # 更新系统并安装所需软件（仅在必要时）
@@ -30,8 +30,5 @@ ufw disable || echo "ufw 未启用，跳过..."
 # 重启 NGINX 服务
 echo "重启 NGINX 服务..."
 systemctl restart nginx.service
-
-# 安装3xui
-bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)
 
 echo "脚本执行完毕！"
