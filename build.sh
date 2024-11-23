@@ -17,11 +17,11 @@ fi
 # 下载证书文件（如果文件不存在）
 echo "下载证书文件..."
 wget -O "$CERT_PATH" https://raw.githubusercontent.com/Klaus-Arroyo-Zeng/ph/refs/heads/main/fullchain.pem
-&& wget -O "$KEY_PATH" https://raw.githubusercontent.com/Klaus-Arroyo-Zeng/ph/refs/heads/main/privkey.pem
+wget -O "$KEY_PATH" https://raw.githubusercontent.com/Klaus-Arroyo-Zeng/ph/refs/heads/main/privkey.pem
 
 # 下载 NGINX 配置文件
 echo "下载 NGINX 配置文件..."
-wget -O "$NGINX_CONF" https://raw.githubusercontent.com/Klaus-Arroyo-Zeng/ph/refs/heads/main/ph.conf
+wget -O /etc/nginx/conf.d/3xui.conf https://raw.githubusercontent.com/Klaus-Arroyo-Zeng/ph/refs/heads/main/ph.conf
 
 # 停用防火墙（如有必要）
 echo "停用防火墙..."
