@@ -1,16 +1,37 @@
-#!/bin/sh
+#!/bin/bash
 
-# 下载nginx
-apt update && apt install nginx ufw -y
+# 确保脚本在遇到错误时退出
+set -e
 
-# 下载 fullchain.pem 文件
-wget -O /root/fullchain1.pem https://raw.githubusercontent.com/Klaus-Arroyo-Zeng/ph/refs/heads/main/fullchain.pem
+# 定义变量
+NGINX_CONF="/root/3xui1.conf"
+CERT_PATH="/root/fullchain1.pem"
+KEY_PATH="/root/privkey1.pem"
 
-# 下载 privkey.pem 文件
-wget -O /root/privkey1.pem https://raw.githubusercontent.com/Klaus-Arroyo-Zeng/ph/refs/heads/main/privkey.pem
+# 更新系统并安装所需软件（仅在必要时）
+echo "检查并安装必要的软件..."
+if ! command -v nginx &> /dev/null; then
+  apt update && apt install nginx -y
+fi
+if ! command -v ufw &> /dev/null; then
+  apt install ufw -y
+fi
 
-# 下载 sh 文件
-wget -O /root/3xui1.conf https://raw.githubusercontent.com/Klaus-Arroyo-Zeng/ph/refs/heads/main/ph.json
+# 下载证书文件（如果文件不存在）
+echo "下载证书文件..."
+[ ! -f "$CERT_PATH" ] && wget -O "$CERT_PATH" https://raw.githubusercontent.com/Klaus-Arroyo-Zeng/ph/refs/heads/main/fullchain.pem
+[ ! -f "$KEY_PATH" ] && wget -O "$KEY_PATH" https://raw.githubusercontent.com/Klaus-Arroyo-Zeng/ph/refs/heads/main/privkey.pem
 
-ufw disable
+# 下载 NGINX 配置文件
+echo "下载 NGINX 配置文件..."
+wget -O "$NGINX_CONF" https://raw.githubusercontent.com/Klaus-Arroyo-Zeng/ph/refs/heads/main/ph.json
+
+# 停用防火墙（如有必要）
+echo "停用防火墙..."
+ufw disable || echo "ufw 未启用，跳过..."
+
+# 重启 NGINX 服务
+echo "重启 NGINX 服务..."
 systemctl restart nginx
+
+echo "脚本执行完毕！"
