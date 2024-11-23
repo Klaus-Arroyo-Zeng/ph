@@ -3,7 +3,7 @@
 # 定义变量
 NGINX_CONF="/root/privkey.pem"
 CERT_PATH="/root/fullchain1.pem"
-KEY_PATH="/etc/nginx/conf.d/3xui1.conf"
+KEY_PATH="/etc/nginx/conf.d/3xui.conf"
 
 # 更新系统并安装所需软件（仅在必要时）
 echo "检查并安装必要的软件..."
