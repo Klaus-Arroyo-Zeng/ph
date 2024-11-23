@@ -6,7 +6,7 @@ CERT_PATH="/root/fullchain.pem"
 KEY_PATH="/root/privkey.pem"
 
 # 更新系统并安装所需软件（仅在必要时）
-echo "检查并安装必要的软件..."
+echo "Checking necessary soft..."
 if ! command -v nginx &> /dev/null; then
   apt update && apt install nginx -y
 fi
