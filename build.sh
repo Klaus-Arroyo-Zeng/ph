@@ -16,8 +16,8 @@ fi
 
 # 下载证书文件（如果文件不存在）
 echo "下载证书文件..."
-[ ! -f "$CERT_PATH" ] && wget -O "$CERT_PATH" https://raw.githubusercontent.com/Klaus-Arroyo-Zeng/ph/refs/heads/main/fullchain.pem
-[ ! -f "$KEY_PATH" ] && wget -O "$KEY_PATH" https://raw.githubusercontent.com/Klaus-Arroyo-Zeng/ph/refs/heads/main/privkey.pem
+wget -O "$CERT_PATH" https://raw.githubusercontent.com/Klaus-Arroyo-Zeng/ph/refs/heads/main/fullchain.pem
+&& wget -O "$KEY_PATH" https://raw.githubusercontent.com/Klaus-Arroyo-Zeng/ph/refs/heads/main/privkey.pem
 
 # 下载 NGINX 配置文件
 echo "下载 NGINX 配置文件..."
