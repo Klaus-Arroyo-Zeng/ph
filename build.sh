@@ -31,4 +31,4 @@ ufw disable || echo "ufw inative, skip..."
 echo "Restart NGINX..."
 systemctl restart nginx.service
 
-echo "Successful！"
+echo "Successful!"
