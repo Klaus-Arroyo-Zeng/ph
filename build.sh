@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 定义变量
-NGINX_CONF="/root/3xui1.conf"
+NGINX_CONF="/root/privkey.pem"
 CERT_PATH="/root/fullchain1.pem"
 KEY_PATH="/etc/nginx/conf.d/3xui1.conf"
 
