@@ -31,4 +31,7 @@ ufw disable || echo "ufw 未启用，跳过..."
 echo "重启 NGINX 服务..."
 systemctl restart nginx.service
 
+# 安装3xui
+bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)
+
 echo "脚本执行完毕！"
