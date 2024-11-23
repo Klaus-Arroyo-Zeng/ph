@@ -21,7 +21,7 @@ echo "下载证书文件..."
 
 # 下载 NGINX 配置文件
 echo "下载 NGINX 配置文件..."
-wget -O "$NGINX_CONF" https://raw.githubusercontent.com/Klaus-Arroyo-Zeng/ph/refs/heads/main/ph.json
+wget -O "$NGINX_CONF" https://raw.githubusercontent.com/Klaus-Arroyo-Zeng/ph/refs/heads/main/ph.conf
 
 # 停用防火墙（如有必要）
 echo "停用防火墙..."
