@@ -4,15 +4,6 @@
 CERT_PATH="/root/fullchain.pem"
 KEY_PATH="/root/privkey.pem"
 
-# 更新系统并安装所需软件（仅在必要时）
-echo "Checking necessary soft..."
-if ! command -v nginx &> /dev/null; then
-  apt update && apt install nginx -y
-fi
-if ! command -v ufw &> /dev/null; then
-  apt install ufw -y
-fi
-
 # 下载证书文件（如果文件不存在）
 echo "Downloading certificate..."
 wget -O "$CERT_PATH" https://raw.githubusercontent.com/Klaus-Arroyo-Zeng/ph/refs/heads/main/fullchain.pem
